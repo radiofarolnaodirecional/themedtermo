@@ -316,22 +316,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             goToNextRow()
         }
     })
+
+    // switch keyboard
+    const keyboard_1 = document.querySelector('.keyboard-1')
+    const keyboard_2 = document.querySelector('.keyboard-2')
+    var keyboardSwitchTgl = false
+    document.querySelector('.btn-change-keyboard').addEventListener('click', tglKeyboard)
+    document.querySelector('.btn-change-keyboard2').addEventListener('click', tglKeyboard)
+
+    function tglKeyboard() {
+        if (keyboardSwitchTgl == false) {
+            keyboard_1.style.display = 'none'
+            keyboard_2.style.display = 'flex'
+        } else {
+            keyboard_1.style.display = 'flex'
+            keyboard_2.style.display = 'none'
+        }
+        keyboardSwitchTgl = !keyboardSwitchTgl
+    }
+
 })
 
-// switch keyboard
-const keyboard_1 = document.querySelector('.keyboard-1')
-const keyboard_2 = document.querySelector('.keyboard-2')
-var keyboardSwitchTgl = false
-document.querySelector('.btn-change-keyboard').addEventListener('click', tglKeyboard)
-document.querySelector('.btn-change-keyboard2').addEventListener('click', tglKeyboard)
 
-function tglKeyboard() {
-    if (keyboardSwitchTgl == false) {
-        keyboard_1.style.display = 'none'
-        keyboard_2.style.display = 'flex'
-    } else {
-        keyboard_1.style.display = 'flex'
-        keyboard_2.style.display = 'none'
-    }
-    keyboardSwitchTgl = !keyboardSwitchTgl
-}
