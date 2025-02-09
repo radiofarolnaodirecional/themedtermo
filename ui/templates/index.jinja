@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main-style.css') }}">
+</head>
+<body>
+    <header>
+        text
+    </header>
+    <section class="section-main">
+        <div class="btn-theme">
+            <div style="cursor: pointer;">Tema: <span class="span-themetxt">tudo</span> &gt;</div>
+            <div class="container-theme-list">
+                <ul style="
+                        list-style: none;
+                        cursor: pointer;
+                    ">
+                    <li class="li-theme li-active">tudo</li>
+                    <li class="li-theme">aleatório</li>
+                    <li class="li-theme">outro</li>
+                    <input type="hidden" value="1" class="input-theme-select" />
+                </ul>
+            </div>
+        </div>
+        <button class="btn-play">Play</button>
+        <div class="details">
+            <div>Vitórias/derrotas:</div>
+            <div class="vic-graph">
+                <div class="vic-graph-bar"></div>
+            </div>
+            <div class="vic-graph-val">0%</div>
+            <div class="jogos">Jogos:</div>
+            <ul class="list-past-games">
+                <li>theme 1</li>
+                <li>t 2</li>
+            </ul>
+            <div class="reset-t">
+                Reset: <br>
+                <span>00:00:00</span>
+            </div>
+        </div>
+        <div>Info</div>
+    </section>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

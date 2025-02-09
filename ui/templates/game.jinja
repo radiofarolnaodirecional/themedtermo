@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ theme }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main-style.css') }}">
+</head>
+<body>
+    <div class="container-win-modal">
+        <div class="win-modal">
+            <a href="/" class="btn-inicio-win">Início</a>
+            <div>Correto!</div>
+            <div><span class="span-attempts">x</span> tentativas.</div>
+        </div>
+    </div>
+    <div class="js-flash"></div>
+    <header>
+        text
+    </header>
+    <section class="container-game">
+
+        <div class="game-top">
+            <div class="btn-return">
+                <a href="{{ url_for('view.index') }}">
+                    <div class="btn-return-in">&lt;-&nbsp;Voltar</div>
+                </a>
+            </div>
+            <div class="tm">Tema: {{ theme }}</div>
+        </div>
+
+        <div class="container-inputletter">
+            <input type="text" name="" id="input-1" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-2" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-3" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-4" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-5" class="input-letter" value="" maxlength="1" />
+        </div>
+
+        <div class="row">
+            <div class="letter row-1"></div>
+            <div class="letter row-1"></div>
+            <div class="letter row-1"></div>
+            <div class="letter row-1"></div>
+            <div class="letter row-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="letter-unactive row-2"></div>
+            <div class="letter-unactive row-2"></div>
+            <div class="letter-unactive row-2"></div>
+            <div class="letter-unactive row-2"></div>
+            <div class="letter-unactive row-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="letter-unactive row-3"></div>
+            <div class="letter-unactive row-3"></div>
+            <div class="letter-unactive row-3"></div>
+            <div class="letter-unactive row-3"></div>
+            <div class="letter-unactive row-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="letter-unactive row-4"></div>
+            <div class="letter-unactive row-4"></div>
+            <div class="letter-unactive row-4"></div>
+            <div class="letter-unactive row-4"></div>
+            <div class="letter-unactive row-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="letter-unactive row-5"></div>
+            <div class="letter-unactive row-5"></div>
+            <div class="letter-unactive row-5"></div>
+            <div class="letter-unactive row-5"></div>
+            <div class="letter-unactive row-5"></div>
+        </div>
+
+        <div class="row">
+            <div class="letter-unactive row-6"></div>
+            <div class="letter-unactive row-6"></div>
+            <div class="letter-unactive row-6"></div>
+            <div class="letter-unactive row-6"></div>
+            <div class="letter-unactive row-6"></div>
+        </div>
+
+        <div class="keyboard">
+            <div class="keyboard-row">
+                <div class="keyb-key keyboard-q">q</div>
+                <div class="keyb-key keyboard-w">w</div>
+                <div class="keyb-key keyboard-e">e</div>
+                <div class="keyb-key keyboard-r">r</div>
+                <div class="keyb-key keyboard-t">t</div>
+                <div class="keyb-key keyboard-y">y</div>
+                <div class="keyb-key keyboard-u">u</div>
+                <div class="keyb-key keyboard-i">i</div>
+                <div class="keyb-key keyboard-o">o</div>
+                <div class="keyb-key keyboard-p">p</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key keyboard-a">a</div>
+                <div class="keyb-key keyboard-s">s</div>
+                <div class="keyb-key keyboard-d">d</div>
+                <div class="keyb-key keyboard-f">f</div>
+                <div class="keyb-key keyboard-g">g</div>
+                <div class="keyb-key keyboard-h">h</div>
+                <div class="keyb-key keyboard-j">j</div>
+                <div class="keyb-key keyboard-k">k</div>
+                <div class="keyb-key keyboard-l">l</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key keyboard-ç">ç</div>
+                <div class="keyb-key keyboard-z">z</div>
+                <div class="keyb-key keyboard-x">x</div>
+                <div class="keyb-key keyboard-c">c</div>
+                <div class="keyb-key keyboard-v">v</div>
+                <div class="keyb-key keyboard-b">b</div>
+                <div class="keyb-key keyboard-n">n</div>
+                <div class="keyb-key keyboard-m">m</div>
+                <!-- <div class="keyb-enter">Enter</div> -->
+            </div>
+            <div class="keyboard-row">
+                <!-- <div class="keyb-space"></div> -->
+            </div>
+        </div>
+
+    </section>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

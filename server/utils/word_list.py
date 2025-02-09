@@ -1,0 +1,2 @@
+word_list = ['teste', 'pesca', 'cases', 'pisca', 'aaaaa', 'hinto', 'testo', 'pinto', 'aaapa', 'casee', 'pesco', 'nessa', 'casss', 'ruela']
+                        ###                                                                     ###

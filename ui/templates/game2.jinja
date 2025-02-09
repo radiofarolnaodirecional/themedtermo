@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ theme }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main-style.css') }}">
+</head>
+<body>
+    <div class="container-win-modal">
+        <div class="win-modal">
+            <a href="/" class="btn-inicio-win">Início</a>
+            <div>Correto!</div>
+            <div><span class="span-attempts">x</span> tentativas.</div>
+        </div>
+    </div>
+    <div class="js-flash"></div>
+    <header>
+        text
+    </header>
+    <section class="container-game">
+
+        <div class="game-top">
+            <div class="btn-return">
+                <a href="{{ url_for('view.index') }}">
+                    <div class="btn-return-in">&lt;-&nbsp;Voltar</div>
+                </a>
+            </div>
+            <div class="tm">Tema: {{ theme }}</div>
+        </div>
+
+        <div class="container-inputletter">
+            <input type="text" name="" id="input-1" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-2" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-3" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-4" class="input-letter" value="" maxlength="1" />
+            <input type="text" name="" id="input-5" class="input-letter" value="" maxlength="1" />
+        </div>
+
+        <div class="container-game2">
+            <div class="container-game2-rows">
+                <div class="row-sm">
+                    <div class="letter row-1 letter-sm col1"></div>
+                    <div class="letter row-1 letter-sm col1"></div>
+                    <div class="letter row-1 letter-sm col1"></div>
+                    <div class="letter row-1 letter-sm col1"></div>
+                    <div class="letter row-1 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-2 letter-sm col1"></div>
+                    <div class="letter-unactive row-2 letter-sm col1"></div>
+                    <div class="letter-unactive row-2 letter-sm col1"></div>
+                    <div class="letter-unactive row-2 letter-sm col1"></div>
+                    <div class="letter-unactive row-2 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-3 letter-sm col1"></div>
+                    <div class="letter-unactive row-3 letter-sm col1"></div>
+                    <div class="letter-unactive row-3 letter-sm col1"></div>
+                    <div class="letter-unactive row-3 letter-sm col1"></div>
+                    <div class="letter-unactive row-3 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-4 letter-sm col1"></div>
+                    <div class="letter-unactive row-4 letter-sm col1"></div>
+                    <div class="letter-unactive row-4 letter-sm col1"></div>
+                    <div class="letter-unactive row-4 letter-sm col1"></div>
+                    <div class="letter-unactive row-4 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-5 letter-sm col1"></div>
+                    <div class="letter-unactive row-5 letter-sm col1"></div>
+                    <div class="letter-unactive row-5 letter-sm col1"></div>
+                    <div class="letter-unactive row-5 letter-sm col1"></div>
+                    <div class="letter-unactive row-5 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-6 letter-sm col1"></div>
+                    <div class="letter-unactive row-6 letter-sm col1"></div>
+                    <div class="letter-unactive row-6 letter-sm col1"></div>
+                    <div class="letter-unactive row-6 letter-sm col1"></div>
+                    <div class="letter-unactive row-6 letter-sm col1"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-7 letter-sm col1"></div>
+                    <div class="letter-unactive row-7 letter-sm col1"></div>
+                    <div class="letter-unactive row-7 letter-sm col1"></div>
+                    <div class="letter-unactive row-7 letter-sm col1"></div>
+                    <div class="letter-unactive row-7 letter-sm col1"></div>
+                </div>
+            </div>
+
+            <div class="container-game2-rows">
+                <div class="row-sm">
+                    <div class="letter row-1 letter2  letter-sm col2"></div>
+                    <div class="letter row-1 letter2  letter-sm col2"></div>
+                    <div class="letter row-1 letter2  letter-sm col2"></div>
+                    <div class="letter row-1 letter2  letter-sm col2"></div>
+                    <div class="letter row-1 letter2  letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-2 letter2  letter-sm col2"></div>
+                    <div class="letter-unactive row-2 letter2  letter-sm col2"></div>
+                    <div class="letter-unactive row-2 letter2  letter-sm col2"></div>
+                    <div class="letter-unactive row-2 letter2  letter-sm col2"></div>
+                    <div class="letter-unactive row-2 letter2  letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-3 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-3 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-3 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-3 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-3 letter2 letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-4 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-4 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-4 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-4 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-4 letter2 letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-5 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-5 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-5 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-5 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-5 letter2 letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-6 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-6 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-6 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-6 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-6 letter2 letter-sm col2"></div>
+                </div>
+
+                <div class="row-sm">
+                    <div class="letter-unactive row-7 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-7 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-7 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-7 letter2 letter-sm col2"></div>
+                    <div class="letter-unactive row-7 letter2 letter-sm col2"></div>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="keyboard keyboard-1">
+            <div class="keyboard-row">
+                <div class="keyb-key-1 keyboard-q">q</div>
+                <div class="keyb-key-1 keyboard-w">w</div>
+                <div class="keyb-key-1 keyboard-e">e</div>
+                <div class="keyb-key-1 keyboard-r">r</div>
+                <div class="keyb-key-1 keyboard-t">t</div>
+                <div class="keyb-key-1 keyboard-y">y</div>
+                <div class="keyb-key-1 keyboard-u">u</div>
+                <div class="keyb-key-1 keyboard-i">i</div>
+                <div class="keyb-key-1 keyboard-o">o</div>
+                <div class="keyb-key-1 keyboard-p">p</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key-1 keyboard-a">a</div>
+                <div class="keyb-key-1 keyboard-s">s</div>
+                <div class="keyb-key-1 keyboard-d">d</div>
+                <div class="keyb-key-1 keyboard-f">f</div>
+                <div class="keyb-key-1 keyboard-g">g</div>
+                <div class="keyb-key-1 keyboard-h">h</div>
+                <div class="keyb-key-1 keyboard-j">j</div>
+                <div class="keyb-key-1 keyboard-k">k</div>
+                <div class="keyb-key-1 keyboard-l">l</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key-1 keyboard-ç">ç</div>
+                <div class="keyb-key-1 keyboard-z">z</div>
+                <div class="keyb-key-1 keyboard-x">x</div>
+                <div class="keyb-key-1 keyboard-c">c</div>
+                <div class="keyb-key-1 keyboard-v">v</div>
+                <div class="keyb-key-1 keyboard-b">b</div>
+                <div class="keyb-key-1 keyboard-n">n</div>
+                <div class="keyb-key-1 keyboard-m">m</div>
+                <div class="btn-change-keyboard" data-flying_box data-flbx_text="Mudar coluna do teclado">
+                    <img src="{{ url_for('static', filename='img/arrow_l.png') }}" class="arrow-l" alt="">
+                    <div class="btn-change-keyboard-num">1</div>
+                    <img src="{{ url_for('static', filename='img/arrow_r.png') }}" class="arrow-r" alt="">
+                </div>
+                <!-- <div class="keyb-enter">Enter</div> -->
+            </div>
+            <div class="keyboard-row">
+                <!-- <div class="keyb-space"></div> -->
+            </div>
+        </div>
+
+        <div class="keyboard keyboard-2">
+            <div class="keyboard-row">
+                <div class="keyb-key-2 keyboard-q">q</div>
+                <div class="keyb-key-2 keyboard-w">w</div>
+                <div class="keyb-key-2 keyboard-e">e</div>
+                <div class="keyb-key-2 keyboard-r">r</div>
+                <div class="keyb-key-2 keyboard-t">t</div>
+                <div class="keyb-key-2 keyboard-y">y</div>
+                <div class="keyb-key-2 keyboard-u">u</div>
+                <div class="keyb-key-2 keyboard-i">i</div>
+                <div class="keyb-key-2 keyboard-o">o</div>
+                <div class="keyb-key-2 keyboard-p">p</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key-2 keyboard-a">a</div>
+                <div class="keyb-key-2 keyboard-s">s</div>
+                <div class="keyb-key-2 keyboard-d">d</div>
+                <div class="keyb-key-2 keyboard-f">f</div>
+                <div class="keyb-key-2 keyboard-g">g</div>
+                <div class="keyb-key-2 keyboard-h">h</div>
+                <div class="keyb-key-2 keyboard-j">j</div>
+                <div class="keyb-key-2 keyboard-k">k</div>
+                <div class="keyb-key-2 keyboard-l">l</div>
+            </div>
+            <div class="keyboard-row">
+                <div class="keyb-key-2 keyboard-ç">ç</div>
+                <div class="keyb-key-2 keyboard-z">z</div>
+                <div class="keyb-key-2 keyboard-x">x</div>
+                <div class="keyb-key-2 keyboard-c">c</div>
+                <div class="keyb-key-2 keyboard-v">v</div>
+                <div class="keyb-key-2 keyboard-b">b</div>
+                <div class="keyb-key-2 keyboard-n">n</div>
+                <div class="keyb-key-2 keyboard-m">m</div>
+                <div class="btn-change-keyboard btn-change-keyboard2">
+                    <img src="{{ url_for('static', filename='img/arrow_l.png') }}" class="arrow-l" alt="">
+                    <div class="btn-change-keyboard-num">2</div>
+                    <img src="{{ url_for('static', filename='img/arrow_r.png') }}" class="arrow-r" alt="">
+                </div>
+                <!-- <div class="keyb-enter">Enter</div> -->
+            </div>
+            <div class="keyboard-row">
+                <!-- <div class="keyb-space"></div> -->
+            </div>
+        </div>
+    
+
+    </section>
+    <script src="{{ url_for('static', filename='js/main2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/flbx.js') }}"></script>
+</body>
+</html>
