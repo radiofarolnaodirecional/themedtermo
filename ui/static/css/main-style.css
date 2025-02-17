@@ -83,13 +83,56 @@ body{
     display: none;
 }
 
+.li-theme{
+    border-radius: 3px;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+}
+
 .li-theme:hover{
     background-color: #7b7b7b13;
 }
 
 .li-active{
     background-color: rgba(128, 128, 128, 0.107);
+}
+
+.container-columnsopt{
+    display: flex;
+}
+
+.columnsopt{
+    width: 25px;
+    height: 25px;
     border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    margin-bottom: 5px;
+}
+
+.columnsopt:hover{
+    background-color: #7b7b7b13;
+}
+
+.columnsopt-active{
+    background-color: rgba(128, 128, 128, 0.107);
+}
+
+.theme-alert{
+    width: 17px;
+    height: 17px;
+    font-size: 0.9rem;
+    background-color: rgba(255, 166, 0, 0.027);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 166, 0, 0.561);
+    margin-left: auto;
+    margin-right: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-play{
@@ -151,6 +194,7 @@ body{
     flex-direction: column;
     gap: 3px;
     font-size: 0.9rem;
+    display: flex;
 }
 
 .list-past-games li{
@@ -211,6 +255,11 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.container-game3{
+    display: flex;
+    gap: 60px;
 }
 
 .container-game{
@@ -331,7 +380,7 @@ body{
     display: flex;
 }
 
-.keyb-key, .keyb-key-1, .keyb-key-2, .keyboard-enter, .keyboard-space{
+.keyb-key, .keyb-key-1, .keyb-key-2, .keyb-key-3, .keyboard-enter, .keyboard-space{
     background-color: rgba(116, 116, 116, 0.176);
     border-bottom: 1px solid rgba(0, 0, 0, 0.239);
     margin: 1.5px;
@@ -407,6 +456,6 @@ body{
     scale: 1;
 }
 
-.keyboard-2{
+.keyboard-2, .keyboard-3{
     display: none;
 }

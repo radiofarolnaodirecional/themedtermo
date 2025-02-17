@@ -9,9 +9,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     var ctrlPressed = false
 
-    const word_list = await fetch('/api/word-list').then(r => r.json())
+    const wl_req = await fetch(`/api/word-list/theme_${theme}`).then(r => r.json())
 
-    const word_correct = word_list[9]
+    const word_list = wl_req.word_list
+    const word_list_theme = wl_req.word_list_theme
+
+    const word_correct = word_list_theme[wl_req.word1]
+
+    const dateR = await fetch(`/date-time`).then(r => r.json())
 
     var attempts = 0
 
@@ -104,7 +109,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // lose game
     function lose() {
-        printl('lose')
+        document.querySelector('.container-win-modal').classList.add('win-modal-container-appear')
+        document.querySelector('.win-modal').classList.add('win-modal-appear')
+        document.querySelector('.win-result-txt').textContent = ':('
+        document.querySelector('.win-word-1').textContent = word_correct
+        document.querySelector('.span-attempts').textContent = ''
+
+        localStorage.setItem(`${dateR.date}_${theme}_1`, [false, word_correct])
     }
 
     function getWordFromInputs() {
@@ -233,19 +244,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             winModalcta.classList.add('win-modal-container-appear')
             const winModal = document.querySelector('.win-modal')
             winModal.classList.add('win-modal-appear')
-            document.querySelector('.span-attempts').textContent = attempts + 1
+            document.querySelector('.win-word-1').textContent = word_correct
+            document.querySelector('.span-attempts').textContent = `${attempts + 1} tentativas`
         })
+        localStorage.setItem(`${dateR.date}_${theme}_1`, [true, word_correct])
+    }
+
+    function stringNormal(word) {
+        /*
+        á=a, í=i ...
+        */
+        return word.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     }
 
     function validateWord() {
 
         const word_input = getWordFromInputs()
 
-        if (word_input.length < 5 || !word_list.includes(word_input)) {
+        if (word_input.length < 5 || !word_list.map(stringNormal).includes(word_input) && !word_list_theme.map(stringNormal).includes(word_input)) {
             return 'invalid'
         }
 
-        if (word_input == word_correct) {
+        if (word_input == stringNormal(word_correct)) {
             return true
         } else {
             return false

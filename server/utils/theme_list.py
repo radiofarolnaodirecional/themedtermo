@@ -1,1 +1,0 @@
-themes = ['tudo', 'aleatório', 'outro']

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     var inputLetter = document.querySelectorAll('.input-letter')
     var letter = document.querySelectorAll('.letter')
     var letter2 = document.querySelectorAll('.letter2')
+    var letter3 = document.querySelectorAll('.letter3')
 
     var ctrlPressed = false
 
@@ -16,8 +17,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const word_list_theme = wl_req.word_list_theme
 
-    const word_correct1 = word_list_theme[wl_req.word2]
-    const word_correct2 = word_list_theme[wl_req.word3]
+    const word_correct1 = word_list_theme[wl_req.word4]
+    const word_correct2 = word_list_theme[wl_req.word5]
+    const word_correct3 = word_list_theme[wl_req.word6]
 
     const dateR = await fetch(`/date-time`).then(r => r.json())
 
@@ -27,9 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     var wonCol1 = false
     var column2CorrectFreeze = false
     var wonCol2 = false
+    var column3CorrectFreeze = false
+    var wonCol3 = false
 
     var word_place_right = []
     var word_place_right2 = []
+    var word_place_right3 = []
 
     function inputLetterFunc() {
         inputLetter.forEach((el, i) => {
@@ -45,6 +50,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (!column2CorrectFreeze) {
                         letter2[i].textContent = e.key
                     }
+                    if (!column3CorrectFreeze) {
+                        letter3[i].textContent = e.key
+                    }
 
                     if (inputLetter[i+1]) {
                         inputLetter[i+1].focus()
@@ -57,11 +65,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                         inputLetter.forEach((el) => {el.value = ''})
                         letter.forEach((el) => {el.textContent = ''})
                         letter2.forEach((el) => {el.textContent = ''})
+                        letter3.forEach((el) => {el.textContent = ''})
                         inputLetter[0].focus()
                     } else {
                         el.value = ''
                         letter[i].textContent = ''
                         letter2[i].textContent = ''
+                        letter3[i].textContent = ''
                         if (inputLetter[i-1]) {
                             inputLetter[i-1].focus()
                         }
@@ -105,10 +115,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!column2CorrectFreeze) {
                     letter2[i].classList.add('foc')
                 }
+                if (!column3CorrectFreeze) {
+                    letter3[i].classList.add('foc')
+                }
             })
             el.addEventListener('blur', () => {
                 letter[i].classList.remove('foc')
                 letter2[i].classList.remove('foc')
+                letter3[i].classList.remove('foc')
             })
 
         })
@@ -122,8 +136,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (i < 5) {
                     inputLetter[i].focus()
                 // if click on second column
-                } else if (i >= 5) {
+                } else if (i >= 5 && i < 11) {
                     var val = i - 5
+                    inputLetter[val].focus()
+                } else if (i > 9) {
+                    var val = i - 10
+                    printl(val)
                     inputLetter[val].focus()
                 }
             })
@@ -138,9 +156,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.win-result-txt').textContent = ':('
         document.querySelector('.win-word-1').textContent = word_correct1
         document.querySelector('.win-word-2').textContent = word_correct2
+        document.querySelector('.win-word-3').textContent = word_correct3
         document.querySelector('.span-attempts').textContent = ''
 
-        localStorage.setItem(`${dateR.date}_${theme}_2`, [false, word_correct1, word_correct2])
+        localStorage.setItem(`${dateR.date}_${theme}_3`, [false, word_correct1, word_correct2, word_correct3])
     }
 
     function getWordFromInputs() {
@@ -170,7 +189,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         var correctPositions = {}
     
         elements.forEach((el, idx) => {
-            el.classList.remove('foc', 'letter', 'letter2')
+            el.classList.remove('foc', 'letter', 'letter2', 'letter3')
             el.classList.add('letter-guess2')
     
             var char = wordInput[idx]
@@ -217,7 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     function goToNextRow() {
-        if (attempts >= 6) {
+        if (attempts >= 7) {
             lose()
             return
         }
@@ -228,6 +247,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         var lettersCurrentRow1 = document.querySelectorAll(`.row-${currentRow}.col1`)
         var lettersCurrentRow2 = document.querySelectorAll(`.row-${currentRow}.col2`)
+        var lettersCurrentRow3 = document.querySelectorAll(`.row-${currentRow}.col3`)
         
         if (!column1CorrectFreeze) {
             checkLetters(wordInput, word_correct1, lettersCurrentRow1, 1, word_place_right)
@@ -235,6 +255,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (!column2CorrectFreeze) {
             checkLetters(wordInput, word_correct2, lettersCurrentRow2, 2, word_place_right2)
+        }
+
+        if (!column3CorrectFreeze) {
+            checkLetters(wordInput, word_correct3, lettersCurrentRow3, 3, word_place_right3)
         }
     
         if (!column1CorrectFreeze) {
@@ -271,9 +295,27 @@ document.addEventListener('DOMContentLoaded', async () => {
             wonCol2 = true
         }
 
+        if (!column3CorrectFreeze) {
+            document.querySelectorAll(`.row-${nextRow}.col3`).forEach((el) => {
+                el.classList.remove('letter-unactive')
+                el.classList.add('letter', 'letter3')
+            })
+        } else {
+            if (wonCol3 == false) {
+                document.querySelectorAll(`.row-${currentRow}.col3`).forEach((el) => {
+                    el.classList.remove('letter', 'letter3', 'foc')
+                    el.classList.add('letter-unactive', 'letter-correct-letter-and-place')
+                    const newEl = el.cloneNode(true)
+                    el.parentNode.replaceChild(newEl, el)
+                })
+            }
+            wonCol3 = true
+        }
+
         inputLetter = document.querySelectorAll(`.input-letter`)
         letter = document.querySelectorAll('.letter')
         letter2 = document.querySelectorAll('.letter2')
+        letter3 = document.querySelectorAll('.letter3')
     
         inputLetterFunc()
         letterFocusInput()
@@ -311,15 +353,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (word_input == stringNormal(word_correct1)) {
             column1CorrectFreeze = true
         }
+        if (word_input == stringNormal(word_correct3)) {
+            column3CorrectFreeze = true
+        }
 
-        if (column1CorrectFreeze == true && column2CorrectFreeze == true) {
+        if (column1CorrectFreeze == true && column2CorrectFreeze == true && column3CorrectFreeze == true) {
             document.querySelector('.container-win-modal').classList.add('win-modal-container-appear')
             document.querySelector('.win-modal').classList.add('win-modal-appear')
             document.querySelector('.win-result-txt').textContent = 'Correto!'
             document.querySelector('.win-word-1').textContent = word_correct1
             document.querySelector('.win-word-2').textContent = word_correct2
+            document.querySelector('.win-word-3').textContent = word_correct3
             document.querySelector('.span-attempts').textContent = `${attempts + 1} tentativas.`
-            localStorage.setItem(`${dateR.date}_${theme}_2`, [true, word_correct1, word_correct2])
+            localStorage.setItem(`${dateR.date}_${theme}_3`, [true, word_correct1, word_correct2, word_correct3])
             return false
         }
         return true
@@ -346,18 +392,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     // switch keyboard
     const keyboard_1 = document.querySelector('.keyboard-1')
     const keyboard_2 = document.querySelector('.keyboard-2')
-    var keyboardSwitchTgl = false
+    const keyboard_3 = document.querySelector('.keyboard-3')
+    var keyboardState = 0
     document.querySelector('.btn-change-keyboard').addEventListener('click', tglKeyboard)
     document.querySelector('.btn-change-keyboard2').addEventListener('click', tglKeyboard)
+    document.querySelector('.btn-change-keyboard3').addEventListener('click', tglKeyboard)
 
     function tglKeyboard() {
-        if (keyboardSwitchTgl == false) {
-            keyboard_1.style.display = 'none'
-            keyboard_2.style.display = 'flex'
-        } else {
+
+        keyboardState ++
+
+        if (keyboardState > 2) {
+            keyboardState = 0
+        }
+
+        if (keyboardState === 0) {
             keyboard_1.style.display = 'flex'
             keyboard_2.style.display = 'none'
+            keyboard_3.style.display = 'none'
+        } else if (keyboardState === 1) {
+            keyboard_1.style.display = 'none'
+            keyboard_2.style.display = 'flex'
+            keyboard_3.style.display = 'none'
+        } else if (keyboardState === 2) {
+            keyboard_1.style.display = 'none'
+            keyboard_2.style.display = 'none'
+            keyboard_3.style.display = 'flex'
         }
-        keyboardSwitchTgl = !keyboardSwitchTgl
     }
 })

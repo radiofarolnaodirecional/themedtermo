@@ -10,8 +10,9 @@
     <div class="container-win-modal">
         <div class="win-modal">
             <a href="/" class="btn-inicio-win">Início</a>
-            <div>Correto!</div>
-            <div><span class="span-attempts">x</span> tentativas.</div>
+            <div class="win-result-txt">Correto!</div>
+            <div>palavra: <span class="win-word-1"></span>, <span class="win-word-2"></span></div>
+            <div><span class="span-attempts">x</span>  </div>
         </div>
     </div>
     <div class="js-flash"></div>
@@ -126,6 +127,11 @@
         </div>
 
     </section>
+    <script>
+        var theme = '{{ theme }}';
+    </script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>if(theme == 'all'){document.querySelector('.tm').textContent = 'Tema: tudo'}</script>
 </body>
 </html>
