@@ -10,6 +10,7 @@ header{
 
 body{
     background-color: #313735;
+    overflow-x: hidden;
 }
 
 .container-win-modal {
@@ -459,3 +460,38 @@ body{
 .keyboard-2, .keyboard-3{
     display: none;
 }
+
+@media (max-width: 1300px) {
+    .letter-unactive, .letter, .letter-guess{
+        width: 46px;
+        height: 46px;
+    }
+    .container-game2{
+        gap: 30px;
+    }
+    .container-game2-rows{
+        gap: 15px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .letter-unactive, .letter, .letter-guess, .letter-guess2{
+        width: 36px;
+        height: 36px;
+    }
+    .container-game2{
+        gap: 20px;
+    }
+    .container-game2-rows{
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .keyb-key, .keyb-key-1, .keyb-key-2, .keyb-key-3{
+        width: 35px;
+        height: 30px;
+    }
+}
+
