@@ -1,7 +1,5 @@
 __pycache__
 .venv
-.venv-lin
 .env
 .git
 instance
-doc
