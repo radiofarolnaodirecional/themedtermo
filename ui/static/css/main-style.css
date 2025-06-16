@@ -2,6 +2,10 @@
 
 *{margin: 0; padding: 0; box-sizing: border-box; font-family: Delius; color: rgb(207, 207, 207);}
 
+a{
+    text-decoration: none;
+}
+
 header{
     background-color: #404542;
     text-align: center;
